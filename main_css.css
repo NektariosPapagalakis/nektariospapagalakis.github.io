@@ -82,11 +82,11 @@ body{
 header {
     padding: 15%;
     background-image: url("screens2.png");
-    background-position: center;
+    background-position:  top top;
     background-repeat: no-repeat;
     background-size: cover;
     text-align: center;
-    height: 50%;
+    object-fit: contain;
   }
 
 footer {
