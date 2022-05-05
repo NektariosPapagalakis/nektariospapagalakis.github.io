@@ -69,7 +69,7 @@
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 25%;
+    width: 40%;
     height: auto;
 }
 .my_worck_element a{
@@ -77,34 +77,21 @@
 }
 body{
     margin:0;
+    display: block;
 }
 
-header {
-    padding: 15%;
-    background-image: url("screens2.png");
-    background-position:  top top;
-    background-repeat: no-repeat;
-    background-size: cover;
-    text-align: center;
-    object-fit: contain;
-  }
-
-footer {
-    padding: 2%;
-    text-align: center;
-    height: 15%;
-    color: white;
-}
 #header_text{
     visibility: hidden
 }
     
 #navbar {
-    overflow: hidden;
+    /*overflow: hidden;
     background-color: #333;
-    position: fixed;
+    position: sticky;
     top: 0;
-    width: 100%;
+    width: 100%;*/
+    position: sticky;
+    top: 0;
   }
 #navbar a {
     margin: 1%;
@@ -137,10 +124,77 @@ footer {
 #contact #subtitle{
     padding-bottom: 7%;
 }
+.header {
+    /*
+    padding: 15%;
+    background-image: url("screens2.png");
+    background-position:  top top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    object-fit: contain;*/
+    padding-top: 60px;
+    position: relative;
+    text-align: center;
+}
+.header img{
+    margin: 0;
+    width: 100%;
+}
+.header h1{
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    white-space: nowrap;
+}
 
+.footer {
+    padding: 2%;
+    text-align: center;
+    height: 15%;
+    color: white;
+}
 .go_to_top {
     position: fixed;
     bottom: 0;
     right: 1%;
   }
 
+
+@media only screen and (max-width: 1100px) {
+    .font_size1{
+        font-size: 400%;
+    }
+    .font_size2{
+        font-size: 200%;
+    }
+    .font_size3{
+        font-size: 100%;
+    }
+    .my_worck_element img{
+        width: 60%;
+    }
+}
+@media only screen and (max-width: 800px) {
+    .font_size1{
+        font-size: 300%;
+    }
+    .font_size2{
+        font-size: 100%;
+    }
+    .font_size3{
+        font-size: 50%;
+    }
+}
+@media only screen and (max-width: 600px) {
+    .font_size1{
+        font-size: 150%;
+    }
+    .font_size2{
+        font-size: 50%;
+    }
+    .font_size3{
+        font-size: 25%;
+    }
+}
