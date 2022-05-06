@@ -8,13 +8,13 @@
     background-color: rgb(92, 92, 92);
 }
 .font_size1{
-    font-size: 500%;
+    font-size: 100px;
 }
 .font_size2{
-    font-size: 300%;
+    font-size: 75px;
 }
 .font_size3{
-    font-size: 200%;
+    font-size: 50px;
 }
 .font_family1{
     font-family: 'Courier New', monospace;
@@ -35,12 +35,12 @@
 .red_leters{
     color: #961b2c;
 }
-.section{
-    margin: 5% 5%;
-    border-radius: 25px;
-}
 .center_text{
     text-align: center;
+}
+.contact{
+    margin: 5% 5%;
+    border-radius: 25px;
 }
 .contact_container{
     width: 80%;
@@ -92,6 +92,7 @@ body{
     width: 100%;*/
     position: sticky;
     top: 0;
+    z-index: 1;
   }
 #navbar a {
     margin: 1%;
@@ -113,15 +114,15 @@ body{
 #navbar a:hover {
     background-color: #3273b1;
 }
-#contact{
+.contact{
     padding-top: 3%;
     padding-bottom: 7%;
     box-shadow: -13px 13px 11px 0px rgba(0,0,0,0.8);
 }
-#contact h1{
+.contact h1{
     text-shadow: 2px 2px 10px #000000;
 }
-#contact #subtitle{
+.contact #subtitle{
     padding-bottom: 7%;
 }
 .header {
@@ -132,7 +133,6 @@ body{
     background-repeat: no-repeat;
     background-size: cover;
     object-fit: contain;*/
-    padding-top: 60px;
     position: relative;
     text-align: center;
 }
@@ -162,39 +162,35 @@ body{
   }
 
 
-@media only screen and (max-width: 1100px) {
+@media only screen and (max-width: 1400px) {
     .font_size1{
-        font-size: 400%;
+        font-size: 75px;
     }
     .font_size2{
-        font-size: 200%;
+        font-size: 55px;
     }
     .font_size3{
-        font-size: 100%;
+        font-size: 35px;
     }
-    .my_worck_element img{
-        width: 60%;
+}
+@media only screen and (max-width: 1000px) {
+    .font_size1{
+        font-size: 55px;
     }
 }
 @media only screen and (max-width: 800px) {
     .font_size1{
-        font-size: 300%;
-    }
-    .font_size2{
-        font-size: 100%;
-    }
-    .font_size3{
-        font-size: 50%;
+        font-size: 35px;
     }
 }
 @media only screen and (max-width: 600px) {
     .font_size1{
-        font-size: 150%;
+        font-size: 20px;
     }
-    .font_size2{
-        font-size: 50%;
+}
+@media only screen and (max-width: 300px) {
+    .font_size1{
+        font-size: 10px;
     }
-    .font_size3{
-        font-size: 25%;
-    }
+
 }
