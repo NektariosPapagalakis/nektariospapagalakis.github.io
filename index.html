@@ -11,9 +11,9 @@
     </head>
     <body class="background_color2">
         <div id="navbar">
-            <a class="font_size3 navbar_elemetn active" href="javascript:void(0)">About me</a>
-            <a class="font_size3 navbar_elemetn" href="#my_worck">My Worck</a>
-            <a class="font_size3 navbar_elemetn" href="#contact">Contact</a>
+            <a  onclick="change_active_nav_element(this)" class="font_size3 navbar_elemetn active" href="#header">About me</a>
+            <a  onclick="change_active_nav_element(this)" class="font_size3 navbar_elemetn" href="#my_worck">My Worck</a>
+            <a  onclick="change_active_nav_element(this)" class="font_size3 navbar_elemetn" href="#contact">Contact</a>
         </div>
         <div id ="header" class="header section" >
             <h1 id="header_text" class="font_size1 white_leters font_family1">...</h1>
@@ -39,7 +39,7 @@
               <a class="contact_elemetn font_size3" target="_blank"href = "mailto: nektarios00007@gmail.com"><span><i class="fa fa-envelope"></i> Email</span></a>
             </div>
         </div>
-        <a href="#header"><span class="go_to_top"><i id="go_to_top_arrow" class="font_size1 fa-solid fa-angle-up"></i></a>
+        <button onclick="go_to_top()"><span class="go_to_top"><i id="go_to_top_arrow" class="font_size1 fa-solid fa-angle-up"></i></button>
         <div class="footer background_color1 font_size3">
             Created by Nektarios Papagalakis 2022
         </div>
@@ -64,27 +64,7 @@
     document.getElementById("header_text").style.visibility = "visible";
     setTimeout(typeWriter, 1000);
 
-    
-    const navLi = document.getElementsByClassName("navbar_elemetn");
-    const sections = document.getElementsByClassName("section");
- 
-    window.addEventListener("scroll", () => {
-      let current = "";
-      sections.forEach((section) => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
-        if (pageYOffset >= sectionTop - sectionHeight / 3) {
-          current = section.getAttribute("id");
-        }
-      });
-
-      navLi.forEach((a) => {
-        a.classList.remove("active");
-        if (a.classList.contains(current)) {
-          a.classList.add("active");
-        }
-      });
-    });
+  
 
     // https://codepen.io/Web_Cifar/pen/LYRBbVE
 

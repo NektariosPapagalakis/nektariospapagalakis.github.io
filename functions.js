@@ -14,3 +14,13 @@ window.onscroll = function(ev) {
     document.getElementById("go_to_top_arrow").style.color ="#3b8cd8";
   }
 };
+
+function go_to_top(){
+  window.scrollTo({top:0,behavior:'smooth'})
+}
+
+function change_active_nav_element(element){
+  var active_element = document.getElementsByClassName("active");
+  active_element[0].classList.remove("active");
+  element.classList.add("active");
+}
