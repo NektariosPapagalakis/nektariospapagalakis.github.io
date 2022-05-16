@@ -14,7 +14,10 @@
     font-size: 75px;
 }
 .font_size3{
-    font-size: 50px;
+    font-size: 30px;
+}
+.font_size4{
+    font-size: 20px;
 }
 .font_family1{
     font-family: 'Courier New', monospace;
@@ -25,7 +28,6 @@
 .font_family3{
     font-family: Brush Script MT
 }
-
 .white_leters{
     color: white;
 }
@@ -64,7 +66,7 @@
 }
 .my_worck_element{
     padding: 3% 0% 3% 0%;
-    position: relative;
+   
 }
 .my_worck_element img{
     display: block;
@@ -154,7 +156,6 @@ body{
     transform: translate(-50%, -50%);
     white-space: nowrap;
 }
-
 .footer {
     padding: 2%;
     text-align: center;
@@ -173,7 +174,7 @@ body{
         font-size: 75px;
     }
     .font_size2{
-        font-size: 55px;
+        font-size: 50px;
     }
     .font_size3{
         font-size: 35px;
@@ -182,6 +183,9 @@ body{
 @media only screen and (max-width: 1000px) {
     .font_size1{
         font-size: 55px;
+    }
+    .font_size2{
+        font-size: 35px;
     }
 }
 @media only screen and (max-width: 800px) {
