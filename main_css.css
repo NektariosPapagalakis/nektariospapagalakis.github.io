@@ -142,6 +142,7 @@ body{
     background-size: cover;
     object-fit: contain;*/
     position: relative;
+    top : -65px;
     text-align: center;
 }
 .header img{
