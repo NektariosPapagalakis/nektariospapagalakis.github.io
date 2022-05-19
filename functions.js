@@ -7,7 +7,7 @@ function change_image(element,img1,img2){
   }
 }
 window.onscroll = function(ev) {
-  if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+  if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight-47) {
       document.getElementById("go_to_top_arrow").style.color ="#333";
   }
   else{

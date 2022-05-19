@@ -40,7 +40,7 @@
 .center_text{
     text-align: center;
 }
-.contact{
+#contact{
     margin: 5% 5%;
     border-radius: 25px;
 }
@@ -103,7 +103,7 @@ body{
     z-index: 1;
   }
 #navbar a {
-    margin: 1%;
+    margin: 10px;
     float: left;
     color: #f2f2f2;
     text-align: center;
@@ -122,34 +122,27 @@ body{
 #navbar a:hover {
     background-color: #3273b1;
 }
-.contact{
+#contact{
     padding-top: 3%;
     padding-bottom: 7%;
     box-shadow: -13px 13px 11px 0px rgba(0,0,0,0.8);
 }
-.contact h1{
+#contact h1{
     text-shadow: 2px 2px 10px #000000;
 }
-.contact #subtitle{
+#contact #subtitle{
     padding-bottom: 7%;
 }
-.header {
-    /*
-    padding: 15%;
-    background-image: url("screens2.png");
-    background-position:  top top;
-    background-repeat: no-repeat;
-    background-size: cover;
-    object-fit: contain;*/
+#header {
     position: relative;
-    top : -65px;
+    top : -63px;
     text-align: center;
 }
-.header img{
+#header img{
     margin: 0;
     width: 100%;
 }
-.header h1{
+#header h1{
     margin: 0;
     position: absolute;
     top: 50%;
@@ -167,9 +160,8 @@ body{
     position: fixed;
     bottom: 0;
     right: 1%;
+    font-size: 100px;
   }
-
-
 @media only screen and (max-width: 1400px) {
     .font_size1{
         font-size: 75px;
@@ -181,27 +173,48 @@ body{
         font-size: 35px;
     }
 }
-@media only screen and (max-width: 1000px) {
+@media only screen and (max-width: 1200px) {
+    .font_size2{
+        font-size: 35px;
+    }
     .font_size1{
         font-size: 55px;
     }
-    .font_size2{
-        font-size: 35px;
+    .my_worck_element img{
+        width: 60%;
     }
 }
 @media only screen and (max-width: 800px) {
     .font_size1{
         font-size: 35px;
     }
+    .go_to_top {
+        font-size: 80px;
+      }
 }
 @media only screen and (max-width: 600px) {
     .font_size1{
         font-size: 20px;
     }
+    .font_size3{
+        font-size: 20px;
+    }
+    .go_to_top {
+        font-size: 60px;
+      }
 }
 @media only screen and (max-width: 300px) {
     .font_size1{
         font-size: 10px;
+    }
+    .font_size2{
+        font-size: 9px;
+    }
+    .font_size3{
+        font-size: 8px;
+    }
+    .font_size4{
+        font-size: 7px;
     }
 
 }
