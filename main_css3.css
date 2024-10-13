@@ -1,0 +1,80 @@
+body{
+    margin: 0px;
+    padding: 0px;
+    background-color: #333;
+}
+
+
+
+
+#navbar {
+    /*overflow: hidden;
+    background-color: #333;
+    position: sticky;
+    top: 0;
+    width: 100%;*/
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    height: 60px;
+    margin: 0px;
+    padding: 0px;
+  }
+#navbar a {
+    margin: 10px;
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 20px;
+}
+#navbar a:hover {
+    background-color: #ddd;
+    color: black;
+}
+#navbar a.active {
+    background-color: #3b8cd8;
+    color: white;
+}
+#navbar a:hover {
+    background-color: #3273b1;
+}
+
+.go_to_top {
+    position: fixed;
+    bottom: 0;
+    right: 1%;
+    font-size: 100px;
+  }
+
+header{
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+header div:nth-child(2){
+    background-color: blue;
+    margin: 0px;
+    padding: 0px;
+    height: 520px;
+    overflow: hidden;
+    border-radius: 20px;
+}
+
+#my_profile_img{
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    filter: drop-shadow(-5px -5px 5px #222); 
+}
+
+#my_profile_img_box_shadow{
+    height: 520px;
+    background-color: red;
+    border-radius: 20px;
+    position: relative;
+    top: -520px;
+    box-shadow: inset 5px 5px 10px 10px rgba(0, 0, 0, 0.3);
+
+}
