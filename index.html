@@ -16,41 +16,22 @@
         <a  onclick="change_active_nav_element(this)" class="contact font_size4 navbar_elemetn" href="#contact">Contact</a>
       </div>
       <div>
-        <div id ="header" class="section" >
-        <h1 id="header_text" class="font_size1 white_leters font_family1">...</h1>
-        <img src="screens2.png" alt="">
-      </div>
-      </div>
+        <header>
+          <div>hello</div>
+          <div><img src="IMG_2285.png" id="my_profile_img"></div>
+        
+        
+      </header>
       
-      <div id="my_worck" class = "section">
-          <h1 class="center_text font_size2 blue_leters font_family2" >My Work</h1>
-          <div id = "subtitle" class="white_leters center_text font_size2 font_family3">A sample of the work that I have done...</div>
-          <div class="my_worck_container ">  
-            <div class="my_worck_element">
-                <img onclick="change_image(this,'findPasswordScreen1.png','findPasswordScreen2.png')" src="findPasswordScreen1.png"><br>
-                <a class="contact_elemetn center_text font_size3" target="_blank" href="https://github.com/NektariosPapagalakis/Find_Wifi_passwords">Go to <i class="fa fa-github"></i> Github Project</a>
-              </div>
-          </div>
-      </div>
-      <div id="contact" class="contact background_color3 section ">
-          <h1 class="center_text font_size2 blue_leters font_family2">I'm looking forward to working together ...</h1>
-          <div id = "subtitle" class="red_leters center_text font_size2 font_family3">Get in touch with me to get the ball rolling</div>
-          <div class="contact_container ">
-            <a class="contact_elemetn font_size3" target="_blank" href="https://github.com/NektariosPapagalakis"><span><i class="fa fa-github"></i> Github</span></a>
-            <a class="contact_elemetn font_size3" target="_blank" href="https://www.linkedin.com/in/nektarios-papagalakis-5879a01b7/"><span><i class="fa fa-linkedin"></i> Linkedin</span></a>
-            <a class="contact_elemetn font_size3" target="_blank"href = "mailto: nektarios00007@gmail.com"><span><i class="fa fa-envelope"></i> Email</span></a>
-          </div>
-      </div>
+      
       <div  onclick="go_to_top()"><i id="go_to_top_arrow" class="go_to_top fa-solid fa-angle-up"></i></div>
-      <div class="footer background_color1 font_size3">
-          Created by Nektarios Papagalakis 2022
-      </div>
+      
       <script>
         var i = 0;
         var txt = 'Hi I am Nektarios';
         var speed = 80;
     
-        function typeWriter() {
+        /*function typeWriter() {
           if (i < txt.length) {
             if (i==0){
               document.getElementById("header_text").innerHTML = txt.charAt(i);
@@ -63,7 +44,7 @@
           }
         }
         document.getElementById("header_text").style.visibility = "visible";
-        setTimeout(typeWriter, 1000);
+        setTimeout(typeWriter, 1000);*/
         // https://codepen.io/Web_Cifar/pen/LYRBbVE
         
         // nav bar change when scroll
