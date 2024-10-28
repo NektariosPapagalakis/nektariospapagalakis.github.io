@@ -6,20 +6,29 @@ body {
 
 #iframe_container{
     height: 100vh;
-    width: 100vw;
     display: flex;
-    align-items: center;
-    justify-content: right;
+    width: 50vw;
+    margin-left: 50vw;
+    overflow: hidden;
+    position: relative;
 }
 iframe{
-    display: block;
+    /*display: block;
     margin: 0;
     padding: 0;
-    height: 100%; /* Full height of the viewport */
+    height: 100%;
     width: 800px;
     overflow: hidden;
     border: none;
     position: relative;
+    /*zoom: 0.8;*/
+    position: absolute;
+    top:0;
+    left: 0; /* Moves iframe to show only its right half */
+    width: 200%; /* Doubles iframe width to align its right half with the container */
+    height: 100%;
+    border: none; /* Removes border for a cleaner look */
+    
 }
 
 #main_conainer {
@@ -91,4 +100,10 @@ iframe{
     font-size: 50px;
     color: white;
 }
+@media only screen and (max-width:720px){
+    iframe{
+        zoom:0.8;
+    }
+}
+
 
