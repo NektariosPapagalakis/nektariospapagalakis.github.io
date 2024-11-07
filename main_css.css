@@ -7,14 +7,14 @@ body {
 #iframe_container{
     height: 100vh;
     display: flex;
-    width: 100vw;
+    width: 100%;
     overflow: hidden;
     position: relative;
     justify-content: center;
 }
 iframe{
     display: block;
-    margin: 0px 0px 0px 50px;
+    margin: 0px;
     padding: 0px 0px 0px 0px;
     height: 100%;
     width: 800px;
@@ -25,16 +25,18 @@ iframe{
 }
 
 #tab_1{
-    display: grid;
-    grid-template-columns: 50% 50%;
+    display: flex;
 }
 
 #sub_tab{
     width: 100%;
+    height: 100vh;
     display: flex;
     align-items: center;
     justify-content: right;
     
+    position: absolute;
+    top: 0;
 }
 
 
@@ -42,7 +44,6 @@ iframe{
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 50px;
 }
 
 #mobile_view #img_container {
@@ -50,7 +51,6 @@ iframe{
     width: auto;
     
     display: flex;
-    height: fit-content;
     display: grid;
     grid-template-columns:90% 10%;
 }
@@ -63,15 +63,15 @@ iframe{
     height: fit-content;
     box-shadow: inset 0px 0px 50px 20px;
     overflow: hidden;
+    
 }
 
 #mobile_view #img_container #img_subcontainer #my_pic {
     width: auto;
-    height: 80vh;
+    height: 95vh;
     transform: scaleX(-1);
     filter: drop-shadow(-15px -10px 2px rgba(0, 0, 0, 0.8));
     z-index: 2;
-    
 }
 
 #mobile_view #img_container #img_subcontainer .img_text {
