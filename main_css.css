@@ -51,7 +51,7 @@ iframe{
     
     display: flex;
     display: grid;
-    grid-template-columns:90% 10%;
+    grid-template-columns: 5% 90% 5%;
 }
 
 #mobile_view #img_container #img_subcontainer {
