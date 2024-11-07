@@ -1,109 +1,132 @@
 body {
     margin: 0;
     padding: 0;
-    background-color: black;
+    background-color: rgb(39, 39, 39);
 }
 
 #iframe_container{
     height: 100vh;
     display: flex;
-    width: 50vw;
-    margin-left: 50vw;
+    width: 100vw;
     overflow: hidden;
     position: relative;
+    justify-content: center;
 }
 iframe{
-    /*display: block;
-    margin: 0;
-    padding: 0;
+    display: block;
+    margin: 0px 0px 0px 50px;
+    padding: 0px 0px 0px 0px;
     height: 100%;
     width: 800px;
     overflow: hidden;
     border: none;
     position: relative;
-    /*zoom: 0.8;*/
-    position: absolute;
-    top:0;
-    left: 0; /* Moves iframe to show only its right half */
-    width: 200%; /* Doubles iframe width to align its right half with the container */
-    height: 100%;
-    border: none; /* Removes border for a cleaner look */
-    
-}
-
-#main_conainer {
-    position: absolute;
-    top: 0px; /* Adjust to desired positioning */
-    left: 0px; /* Adjust to desired positioning */
-    z-index: 10;
-    margin: 0;
-    margin-right: 25vw;
-    padding: 0;
-    width: 75vw;
-    height: 100vh;
-
-    display: flex;
-    align-items: center;
-    justify-content: left;
-
-    /*background-color: rgb(90, 90, 90,0.5);*/
-    
-    
+    z-index: 1;
 }
 
 #tab_1{
-    padding: 10px;
-    /*background-color: red;*/
-    background-color: rgb(100, 100, 100,0.6);
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+#sub_tab{
+    width: 100%;
     display: flex;
-    border-radius: 20px;
-    margin-left: 50px;
+    align-items: center;
+    justify-content: right;
+    
 }
 
-#img_container{
-    width: 40%;
-    height: 70vh;
-    /*background-color: rgb(90, 90, 90);*/
-    background-color: rgb(40, 40, 40);
-    border-radius: 20px;
 
-    overflow: hidden;
-    position: relative;
+#mobile_view {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+#mobile_view #img_container {
+    position: relative; /* Set relative position to enable absolute positioning within */
+    width: auto;
+    
+    display: flex;
+    height: fit-content;
+    display: grid;
+    grid-template-columns:90% 10%;
+}
+
+#mobile_view #img_container #img_subcontainer {
+    position: relative; /* Set relative position to enable absolute positioning within */
+    width: 100%;
+    background-color: rgb(105, 105, 105);
+    display: flex;
+    height: fit-content;
     box-shadow: inset 0px 0px 50px 20px;
-
-    margin: 40px;
-    padding: 0;
-
+    overflow: hidden;
 }
 
-#my_pic {
-    margin: 0;
-    padding: 0;
+#mobile_view #img_container #img_subcontainer #my_pic {
+    width: auto;
+    height: 80vh;
     transform: scaleX(-1);
-    border-radius: 20px;
     filter: drop-shadow(-15px -10px 2px rgba(0, 0, 0, 0.8));
+    z-index: 2;
+    
+}
+
+#mobile_view #img_container #img_subcontainer .img_text {
+    position: absolute; /* Overlay text */
+    top: 0;
+    left: 0;
+    width: 90%;
+    height: 90%;
+    color: rgb(255, 255, 255);
+    display: block;
+    
+    font-size: 60px;
+
+    font-family: 'Work Sans', sans-serif;
+    font-weight: bold;
+    font-style: normal;
+
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    object-position: center;
 
+    text-shadow: -5px 5px  5px #000000;
+
+    backdrop-filter: blur(10px);
+    background: rgba(0, 0, 0, 0.4);
+    
 }
 
-#tab_1_sub_tab_1{
-    margin: 40px ;
-    font-size: 70px;
-    font-family: 'Work Sans', sans-serif;
-    font-weight: 800;
+#mobile_view #img_container #img_subcontainer .img_text div{
+    margin: 20px;
 }
-#tab_1_sub_tab_1 div{
-    margin-top: 300px;
-    font-size: 50px;
-    color: white;
+
+
+
+.hide_img_text {
+    z-index: 1;
 }
-@media only screen and (max-width:720px){
-    iframe{
-        zoom:0.8;
-    }
+
+.show_img_text {
+    z-index: 3;
+    
 }
+
+.round_corners_25{
+    border-radius: 25px;
+}
+
+
+.img_sides{
+    height: 100%;
+    width: 100%;
+    background-color: rgb(39, 39, 39);
+    position: relative;
+    z-index: 5;
+}
+
+
 
 
