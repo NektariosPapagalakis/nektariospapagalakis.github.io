@@ -5,26 +5,50 @@ body {
 }
 
 #iframe_container{
-    height: 100vh;
+    height: 300px;
     display: flex;
     width: 100%;
     overflow: hidden;
     position: relative;
-    justify-content: center;
+    justify-content: top;
+    display: grid;
+    grid-template-rows: auto auto;
 
-    display: none;
+    margin-top: 30px;
 }
 iframe{
     display: block;
     margin: 0px;
     padding: 0px 0px 0px 0px;
-    height: 100%;
+    height: 600px;
     width: 800px;
     overflow: hidden;
     border: none;
     position: relative;
     z-index: 1;
+    zoom: 0.5;
+    filter: drop-shadow(-15px -10px 2px rgba(0, 0, 0, 0.8));
+    margin-top: 20px;
+
 }
+#iframe_container div{
+    width: 100%;
+    height: 350px;
+    position: absolute;
+    top: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 30px;
+
+    color:white;
+    font-family: 'Work Sans', sans-serif;
+    font-weight: bold;
+    font-style: normal;
+}
+
 
 #tab_1{
     display: flex;
@@ -34,15 +58,16 @@ iframe{
     width: 100%;
     height: 100vh;
     display: flex;
-    align-items: center;
+    align-items: top;
     justify-content: center;
 }
 
 
 #mobile_view {
-    display: flex;
+    height: fit-content;
+    /*display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: center;*/
 }
 
 #mobile_view #img_container {
@@ -82,7 +107,7 @@ iframe{
     color: rgb(255, 255, 255);
     display: block;
     
-    font-size: 60px;
+    font-size: 45px;
 
     font-family: 'Work Sans', sans-serif;
     font-weight: bold;
