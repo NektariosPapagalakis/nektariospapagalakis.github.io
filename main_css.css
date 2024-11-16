@@ -4,7 +4,7 @@ body {
     background-color: rgb(39, 39, 39);
 }
 
-#iframe_container{
+/*#iframe_container{
     height: 300px;
     display: flex;
     width: 100%;
@@ -69,12 +69,12 @@ iframe{
     height: fit-content;
     /*display: flex;
     align-items: center;
-    justify-content: center;*/
+    justify-content: center;*//*
 }
 
 #mobile_view #img_container {
     position: relative; /* Set relative position to enable absolute positioning within */
-    width: auto;
+    /*width: auto;
     
     display: flex;
     display: grid;
@@ -83,7 +83,7 @@ iframe{
 
 #mobile_view #img_container #img_subcontainer {
     position: relative; /* Set relative position to enable absolute positioning within */
-    width: 100%;
+    /*width: 100%;
     background-color: rgb(105, 105, 105);
     display: flex;
     height: fit-content;
@@ -102,7 +102,7 @@ iframe{
 
 #mobile_view #img_container #img_subcontainer .img_text {
     position: absolute; /* Overlay text */
-    top: 0;
+    /*top: 0;
     left: 0;
     width: 90%;
     height: 90%;
@@ -153,6 +153,69 @@ iframe{
     z-index: 5;
 }
 
+#github_title{
+    font-size: 45px;
+    color: black;
+    font-family: 'Work Sans', sans-serif;
+    font-weight: bold;
+    font-style: normal;
+}*/
 
+#img_container {
+    position: relative; /* Set relative position to enable absolute positioning within */
+    width: auto;
+    
+    display: flex;
+    display: grid;
+    grid-template-columns: 5% 90% 5%;
+}
+
+#img_container #img_subcontainer {
+    position: relative; /* Set relative position to enable absolute positioning within */
+    width: 100%;
+    background-color: rgb(105, 105, 105);
+    display: flex;
+    height: fit-content;
+    box-shadow: inset 0px 0px 50px 20px;
+    overflow: hidden;
+    
+}
+
+#img_container #img_subcontainer #my_pic {
+    width: auto;
+    height: 70vh;
+    transform: scaleX(-1);
+    filter: drop-shadow(-15px -10px 2px rgba(0, 0, 0, 0.8));
+    z-index: 2;
+}
+
+#img_container #img_subcontainer .img_text {
+    position: absolute; /* Overlay text */
+    top: 0;
+    left: 0;
+    width: 90%;
+    height: 90%;
+    color: rgb(255, 255, 255);
+    display: block;
+    
+    font-size: 45px;
+
+    font-family: 'Work Sans', sans-serif;
+    font-weight: bold;
+    font-style: normal;
+
+    width: 100%;
+    height: 100%;
+
+    text-shadow: -5px 5px  5px #000000;
+
+    backdrop-filter: blur(10px);
+    background: rgba(0, 0, 0, 0.4);
+    
+}
+
+#img_container #img_subcontainer .img_text div{
+    margin: 20px;
+}
 
 

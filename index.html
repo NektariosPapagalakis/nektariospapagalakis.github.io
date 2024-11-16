@@ -1,47 +1,120 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  
   <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <link rel="stylesheet" href="main_css.css" type="text/css">
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-      <script src="https://kit.fontawesome.com/d2c306d566.js" crossorigin="anonymous"></script>
-      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script><!--jQuery-->
-      <script src="functions.js"></script>
-      <link rel="preconnect" href="https://fonts.googleapis.com"><!--fonts-->
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><!--fonts-->
-      <link href="https://fonts.googleapis.com/css2?family=Poiret+One&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet"><!--fonts-->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="main_css.css" type="text/css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <script
+      src="https://kit.fontawesome.com/d2c306d566.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!--jQuery-->
+    <script src="functions.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <!--fonts-->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!--fonts-->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poiret+One&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <!--fonts-->
 
-      <title>Nektarios Papagakakis</title>
+    <title>Nektarios Papagakakis</title>
   </head>
-  
+
   <body>
-    <div id="iframe_container">
-      <iframe src='https://my.spline.design/particles-1a8ba80a58da4762f2082ee5f6ef8822/' allowfullscreen></iframe>
+    <!--div id="iframe_container">
+      <iframe
+        src="https://my.spline.design/particles-1a8ba80a58da4762f2082ee5f6ef8822/"
+        allowfullscreen
+      ></iframe>
       <div>Hello, I 'm Nektarios</div>
     </div>
 
-
-      <div id="sub_tab">
-        <div id="mobile_view">
-          <div id="img_container">
-            <div class="img_sides" style="background-color: transparent !important;;"></div>
-            <div id="img_subcontainer" class="round_corners_25">
-              <img id="my_pic" class="round_corners_25" src="IMG_2285.png" onclick="toggleText()">
-              <div class="img_text hide_img_text round_corners_25" onclick="toggleText()">
-                <div>  
-                  <p><br><br><br>- Is it<br>&nbsp;&nbsp; possible to?
-                  <br><span style="color: red;">- Yes</span></p>
-                </div>
+    <div id="sub_tab">
+      <div id="mobile_view">
+        <div id="img_container">
+          <div
+            class="img_sides"
+            style="background-color: transparent !important"
+          ></div>
+          <div id="img_subcontainer" class="round_corners_25">
+            <img
+              id="my_pic"
+              class="round_corners_25"
+              src="IMG_2285.png"
+              onclick="toggleText()"
+            />
+            <div
+              class="img_text hide_img_text round_corners_25"
+              onclick="toggleText()"
+            >
+              <div>
+                <p>
+                  <br /><br /><br />- Is it<br />&nbsp;&nbsp; possible to?
+                  <br /><span style="color: red">- Yes</span>
+                </p>
               </div>
             </div>
-            
-            <div class="img_sides"></div>
           </div>
-          
+
+          <div class="img_sides"></div>
         </div>
-      </div>   
+
+        <div id="github_div">
+          <div id="github_title">Git Hub</div>
+
+          <div id="comits" style="background-color: rgb(146, 146, 146);">
+          <script src="https://cdn.rawgit.com/IonicaBizau/github-calendar/gh-pages/dist/github-calendar.min.js"></script>
+          <link
+            rel="stylesheet"
+            href="https://cdn.rawgit.com/IonicaBizau/github-calendar/gh-pages/dist/github-calendar.css"
+          />
+          <div class="calendar">
+            Loading the data just for you.
+          </div>
+          <script>
+            new GitHubCalendar(".calendar", "NektariosPapagalakis");
+          </script>
+          </div>
+        </div>
+      </div>
+    </div-->
+    <div class="section">
+      <div id="img_container">
+        <div
+          class="img_sides"
+          style="background-color: transparent !important"
+        ></div>
+        <div id="img_subcontainer" class="round_corners_25">
+          <img
+            id="my_pic"
+            class="round_corners_25"
+            src="IMG_2285.png"
+            onclick="toggleText()"
+          />
+          <div
+            class="img_text hide_img_text round_corners_25"
+            onclick="toggleText()"
+          >
+            <div>
+              <p>
+                <br /><br /><br />- Is it<br />&nbsp;&nbsp; possible to?
+                <br /><span style="color: red">- Yes</span>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="img_sides"></div>
+      </div>
+    </div>
 
   </body>
 </html>
