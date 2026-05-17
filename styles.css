@@ -1,0 +1,340 @@
+body {
+    background-color: #222222;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    
+    /* Ρυθμίσεις για Top Right & Fit Width */
+    background-image: url('./New Project.svg');
+    background-repeat: no-repeat;
+    background-position: top right;
+    background-size: 100% auto; /* Το 100% ορίζει το πλάτος */
+}
+
+.profile_img {
+    height: 80vh;
+    width: auto;
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: drop-shadow(10px 2px 20px rgb(1,1,1));
+    margin: 0 20px;
+    padding: 0;
+}
+
+nav {
+    margin: 0;
+    padding: 0;
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.42);
+    position: relative;
+    z-index: 3;
+}
+
+.section1 {
+    display: flex;
+    flex-direction: row;
+    position: relative; /* Αναγκαίο για να κλειδώσει το εφέ μέσα του */
+    z-index: 3;
+    padding-bottom: 40px; /* Δίνει τον απαραίτητο "αέρα" στο κάτω μέρος για να γίνει το fade */
+}
+
+.section1::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 150px; /* Το ύψος του fade (ίδιο με το padding-bottom) */
+    /* Σβήνει ομαλά από διαφανές στο απόλυτο μαύρο του timeline */
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, #000000 100%);
+    pointer-events: none; /* Για να μην εμποδίζει clicks αν πέφτει πάνω σε κάποιο link */
+    z-index: 5; /* Σιγουρεύει ότι κάθεται πάνω από την profile εικόνα και το background */
+}
+
+.section1 .sub_section_1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    font-size: 100px;
+    color: #FFFFFF;
+    font-family: 'RampiroDEMO', sans-serif; 
+    flex-grow: 1;
+    gap: 50px;
+}
+
+.sub_section_1 .hello_div {
+    margin: 20px;
+    width: 100%;
+    letter-spacing: 0.4em;
+    text-shadow: -5px 5px 5px black;
+}
+
+@font-face {
+    font-family: 'RampiroDEMO';
+    src: url('.rampiro/RampiroDEMO.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Container: 2 στήλες με κενό */
+.link-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 50px;
+    padding: 20px;
+    max-width: 900px;
+    margin: 0 auto; 
+    width: 100%;
+}
+
+/* Η Κάρτα (Link) */
+.link-container .link {
+    background-color: #121212; 
+    border: 1px solid #1e1e1e;
+    border-radius: 16px;
+    padding: 20px;
+    display: flex;
+    align-items: center; 
+    gap: 16px;
+    transition: all 0.3s ease;
+    box-shadow: 0px 0px 20px 1px rgba(222, 222, 222, 0.103);
+}
+
+/* Το τετράγωνο κουτί του εικονιδίου */
+.icon-box {
+    background-color: #162122; 
+    width: 48px;
+    height: 48px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #00d1ff; 
+    flex-shrink: 0; 
+}
+
+.icon-box i {
+    width: 20px;
+    height: 20px;
+}
+
+/* Το περιεχόμενο κειμένου */
+.text-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+/* Ο μικρός τίτλος */
+.label {
+    color: #666666;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-family: 'Inter', sans-serif;
+}
+
+/* Η τιμή */
+.value {
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 500;
+    font-family: 'Inter', sans-serif;
+}
+
+/* Hover εφέ για τις πάνω κάρτες */
+.link:hover {
+    border: 1px solid #00d0ff81;
+    box-shadow: 0px 0px 64px -30px #00d1ff;
+    -webkit-box-shadow: 0px 0px 64px -30px #00d1ff;
+    -moz-box-shadow: 0px 0px 64px -30px #00d1ff;
+    background-color: #161616;
+}
+
+/* Responsive για κινητά (1 στήλη) */
+@media (max-width: 650px) {
+    .link-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* --- PORTFOLIO SECTION & TIMELINE --- */
+
+.portfolio-section {
+    background-color: #000000;
+    color: #ffffff;
+    font-family: 'Segoe UI', Roboto, sans-serif;
+    padding: 20px;
+    overflow: hidden;
+    position: relative;
+    z-index: 2;
+}
+
+.timeline-header {
+    text-align: center;
+    margin-bottom: 10px;
+    margin-top: 0;
+}
+
+.tracking-title {
+    font-weight: 300;
+    letter-spacing: 8px;
+    font-size: 3rem;
+    text-transform: uppercase;
+}
+
+/* --- Timeline Layout --- */
+.horizontal-timeline {
+    display: flex;
+    position: relative; /* Αναγκαίο για το κλείδωμα του canvas */
+    width: 80%;
+    margin: 0 auto;
+    min-height: 550px; 
+    align-items: center;
+    height: 1000px;
+    background-color: #000000; /* Καθαρό μαύρο background για να φαίνονται τα σωματίδια */
+    overflow: hidden;
+}
+
+#particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.timeline-line {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #444, #888, #444, transparent);
+    transform: translateY(-50%);
+    z-index: 2; /* Πάνω από το canvas */
+}
+
+/* --- Items & Dots --- */
+.ht-item {
+    position: relative;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 3; /* Πάνω από το canvas, επιτρέπει clicks και hovers */
+}
+
+/* Origin bottom για να μεγαλώνουν προς τα πάνω */
+.ht-item.top { 
+    transform: translateY(-50%); 
+    padding-bottom: 30px;
+    transform-origin: bottom center; 
+}
+
+/* Origin top για να μεγαλώνουν προς τα κάτω */
+.ht-item.bottom { 
+    transform: translateY(50%); 
+    padding-top: 30px;
+    transform-origin: top center; 
+}
+
+.ht-dot {
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    background-color: #000;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.ht-item.top .ht-dot { bottom: -7px; }
+.ht-item.bottom .ht-dot { top: -7px; }
+
+/* --- Content Cards --- */
+.ht-content {
+    background-color: #0a0a0a;
+    border: 1px solid #222;
+    border-radius: 15px;
+    padding: 25px;
+    width: 100%;
+    max-width: 260px;
+    min-height: 180px; 
+    position: relative;
+    overflow: hidden;
+    /* Προσαρμογή transition για να ακούει σωστά και το ξε-hover */
+    transition: all 0.5s cubic-bezier(0.2, 1, 0.3, 1);
+    cursor: pointer;
+    z-index: 4; /* Μέγιστη προτεραιότητα για να μην χάνονται τα clicks */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* 1. Η γενική αρχική κατάσταση για ΟΛΕΣ τις κάρτες (χωρίς εικόνα ακόμα) */
+.ht-content::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0; /* Κρυφό στην αρχή */
+    transition: opacity 0.4s ease-in-out; /* Το fade εφέ */
+    z-index: -1;
+}
+
+/* 2. ΕΔΩ ορίζεις την εικόνα για την κάθε κλάση/κάρτα ξεχωριστά */
+.uom .ht-content::before {
+    background-image: url('imgs/uom.png'); /* Η εικόνα για το UOM */
+}
+
+
+
+/* --- Hover Effects --- */
+.ht-item:hover .ht-content {
+    transform: scale(1.15); 
+    min-height: 280px;      
+    padding-top: 40px;      
+    padding-bottom: 40px;
+    border-color: #00d1ff;
+    box-shadow: 0px 0px 40px #00d1ff;
+    
+    /* Αφαιρέθηκαν οι απότομες αλλαγές background από εδώ 
+       ώστε να δουλέψει το fade του ::before */
+}
+
+/* Το Fade-In εφέ της εικόνας κατά το Hover */
+.ht-item:hover .ht-content::before {
+    opacity: 0.35; /* Εμφανίζεται ομαλά. Άλλαξέ το σε 1 αν τη θες τέρμα φωτεινή */
+}
+
+.ht-item:hover .ht-dot {
+    background-color: #fff;
+    transform: scale(1.5);
+    box-shadow: 0 0 20px #fff;
+}
+
+/* Typography */
+.ht-date { font-size: 0.75rem; color: #666; margin-bottom: 8px; display: block; transition: 0.3s; }
+.ht-content h3 { margin: 5px 0; font-size: 1.2rem; color: #fff; transition: 0.3s; }
+.ht-subtitle { margin-bottom: 12px; font-size: 0.9rem; color: #aaa; font-weight: 400; transition: 0.3s; }
+.ht-content p { font-size: 0.85rem; color: #777; line-height: 1.6; transition: 0.3s; }
+
+.ht-item:hover .ht-date { color: #aaa; }
+.ht-item:hover p { color: #eee; }
+
+/* --- Mobile Responsiveness --- */
+@media (max-width: 850px) {
+    .horizontal-timeline { flex-direction: column; padding-left: 40px; min-height: auto; }
+    .timeline-line { left: 20px; width: 2px; height: 100%; top: 0; transform: none; }
+    .ht-item.top, .ht-item.bottom { transform: none; width: 100%; padding: 20px 0; align-items: flex-start; transform-origin: left center; }
+    .ht-dot { left: -27px; top: 50px !important; }
+    .ht-item:hover .ht-content { min-height: 200px; transform: scale(1.05); }
+}
