@@ -295,6 +295,15 @@ nav {
     background-image: url('imgs/uom.png'); /* Η εικόνα για το UOM */
 }
 
+.army .ht-content::before {
+    background-image: url('imgs/army.png'); /* Η εικόνα για το UOM */
+}
+
+.work .ht-content::before {
+    background-image: url('imgs/work.jpeg'); /* Η εικόνα για το UOM */
+}
+
+
 
 
 /* --- Hover Effects --- */

@@ -10,7 +10,6 @@ function resizeCanvas() {
 }
 
 resizeCanvas();
-
 window.addEventListener("resize", resizeCanvas);
 
 // =========================
@@ -33,10 +32,13 @@ window.addEventListener("mousemove", (e) => {
 class Particle {
 
     constructor() {
+        this.reset();
+    }
 
+    // Φτιάχνουμε μια reset μέθοδο για να την καλούμε και στην αρχή και όταν πεθαίνει ένα particle
+    reset() {
         this.x = Math.random() * canvas.width;
         this.y = Math.random() * canvas.height;
-
         this.size = Math.random() * 2 + 1;
 
         // αυτόνομη κίνηση
@@ -46,9 +48,27 @@ class Particle {
         // smooth interaction
         this.pushX = 0;
         this.pushY = 0;
+
+        // Διάρκεια ζωής και διαφάνεια (Opacity)
+        this.alpha = 0; // Ξεκινάει αόρατο
+        this.fadeInSpeed = Math.random() * 0.02 + 0.01; // Πόσο γρήγορα εμφανίζεται
+        this.life = 1; // 100% ζωή
+        this.decay = Math.random() * 0.002 + 0.001; // Πόσο γρήγορα πεθαίνει
+        this.isFadingOut = false;
     }
 
     update() {
+        // Διαχείριση εμφάνισης και εξαφάνισης (Life cycle)
+        if (!this.isFadingOut) {
+            if (this.alpha < 1) this.alpha += this.fadeInSpeed;
+            this.life -= this.decay;
+            if (this.life <= 0) this.isFadingOut = true;
+        } else {
+            this.alpha -= 0.02; // Σβήνει σταδιακά
+            if (this.alpha <= 0) {
+                this.reset(); // Όταν σβήσει τελείως, ξαναγεννιέται σε νέα τυχαία θέση!
+            }
+        }
 
         // =========================
         // Normal movement
@@ -78,16 +98,12 @@ class Particle {
         // Mouse Interaction
         // =========================
         if (mouse.x && mouse.y) {
-
             const dx = mouse.x - this.x;
             const dy = mouse.y - this.y;
-
             const distance = Math.sqrt(dx * dx + dy * dy);
 
             if (distance < mouse.radius) {
-
                 const force = (mouse.radius - distance) / mouse.radius;
-
                 const angle = Math.atan2(dy, dx);
 
                 // repel effect
@@ -98,13 +114,10 @@ class Particle {
     }
 
     draw() {
-
         ctx.beginPath();
-
-        ctx.fillStyle = "rgba(255,255,255,0.8)";
-
+        // Χρήση του δυναμικού alpha για το opacity
+        ctx.fillStyle = `rgba(255, 255, 255, ${this.alpha * 0.8})`;
         ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-
         ctx.fill();
     }
 }
@@ -113,7 +126,6 @@ class Particle {
 // Create Particles
 // =========================
 const particles = [];
-
 const particleCount = 250;
 
 for (let i = 0; i < particleCount; i++) {
@@ -124,30 +136,23 @@ for (let i = 0; i < particleCount; i++) {
 // Connect Lines
 // =========================
 function connectParticles() {
-
     for (let a = 0; a < particles.length; a++) {
-
-        for (let b = a; b < particles.length; b++) {
+        for (let b = a + 1; b < particles.length; b++) { // Μικρή διόρθωση: b = a + 1 αντί για b = a (αποφεύγει τον έλεγχο του σωματιδίου με τον εαυτό του)
 
             const dx = particles[a].x - particles[b].x;
             const dy = particles[a].y - particles[b].y;
-
             const distance = Math.sqrt(dx * dx + dy * dy);
 
             if (distance < 100) {
+                // Υπολογισμός opacity γραμμής με βάση ΚΑΙ την ορατότητα των δύο σωματιδίων
+                const minAlpha = Math.min(particles[a].alpha, particles[b].alpha);
+                const lineAlpha = (1 - distance / 100) * minAlpha;
 
-                ctx.strokeStyle = `rgba(255,255,255,${
-                    1 - distance / 100
-                })`;
-
+                ctx.strokeStyle = `rgba(255, 255, 255, ${lineAlpha})`;
                 ctx.lineWidth = 0.5;
-
                 ctx.beginPath();
-
                 ctx.moveTo(particles[a].x, particles[a].y);
-
                 ctx.lineTo(particles[b].x, particles[b].y);
-
                 ctx.stroke();
             }
         }
@@ -158,18 +163,14 @@ function connectParticles() {
 // Animation
 // =========================
 function animate() {
-
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
     for (let particle of particles) {
-
         particle.update();
-
         particle.draw();
     }
 
     connectParticles();
-
     requestAnimationFrame(animate);
 }
 
