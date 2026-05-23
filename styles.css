@@ -303,6 +303,14 @@ nav {
     background-image: url('imgs/work.jpeg'); /* Η εικόνα για το UOM */
 }
 
+.graduation .ht-content::before {
+    background-image: url('imgs/graduation.png'); /* Η εικόνα για το UOM */
+}
+
+.internship .ht-content::before {
+    background-image: url('imgs/internship.jpg'); /* Η εικόνα για το UOM */
+}
+
 
 
 
