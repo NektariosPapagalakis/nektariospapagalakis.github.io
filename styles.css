@@ -292,7 +292,8 @@ nav {
 .graduation .ht-content::before { background-image: url('imgs/graduation.png'); }
 .internship .ht-content::before { background-image: url('imgs/internship.jpg'); }
 
-.ht-item:hover .ht-content {
+.ht-item:hover .ht-content,
+.ht-item.active .ht-content {
     transform: scale(1.15); 
     min-height: 280px;      
     padding-top: 40px;      
@@ -301,23 +302,28 @@ nav {
     box-shadow: 0px 0px 40px #00d1ff;
 }
 
-.ht-item:hover .ht-content::before {
+.ht-item:hover .ht-content::before,
+.ht-item.active .ht-content::before {
     opacity: 0.35; 
 }
 
-.ht-item:hover .ht-dot {
+/* Ενημέρωση για την κουκκίδα του timeline */
+.ht-item:hover .ht-dot,
+.ht-item.active .ht-dot {
     background-color: #fff;
     transform: scale(1.5);
     box-shadow: 0 0 20px #fff;
 }
+
+/* Ενημέρωση για τα κείμενα */
+.ht-item:hover .ht-date, .ht-item.active .ht-date { color: #aaa; }
+.ht-item:hover p, .ht-item.active p { color: #eee; }
 
 .ht-date { font-size: 0.75rem; color: #666; margin-bottom: 8px; display: block; transition: 0.3s; }
 .ht-content h3 { margin: 5px 0; font-size: 1.2rem; color: #fff; transition: 0.3s; }
 .ht-subtitle { margin-bottom: 12px; font-size: 0.9rem; color: #aaa; font-weight: 400; transition: 0.3s; }
 .ht-content p { font-size: 0.85rem; color: #777; line-height: 1.6; transition: 0.3s; }
 
-.ht-item:hover .ht-date { color: #aaa; }
-.ht-item:hover p { color: #eee; }
 
 /* ==========================================================================
    4. FEATURED PROJECTS SECTION (MODERN FIXED 3x3 GRID)
@@ -701,5 +707,231 @@ nav {
     }
     .value {
         font-size: 13px;
+    }
+}
+
+/* ==========================================================================
+   7. CORE SKILLS & EXPERTISE SECTION (WITH NEON ANIMATIONS)
+   ========================================================================== */
+.skills-section-container {
+    background-color: #000000;
+    padding: 120px 20px;
+    position: relative;
+    overflow: hidden;
+    border-top: 1px solid #111;
+}
+
+.skills-bg-header {
+    position: absolute;
+    top: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    text-align: center;
+    z-index: 1;
+    pointer-events: none;
+    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.3) 100%);
+    -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.3) 100%);
+}
+
+.tracking-title-skills {
+    font-weight: 200;
+    letter-spacing: 25px; 
+    font-size: 5.5rem;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.45);
+    font-family: 'Segoe UI', Roboto, sans-serif;
+    margin: 0;
+    padding-left: 25px; 
+}
+
+.skills_parent {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    padding: 20px;
+    max-width: 1240px;
+    margin: 160px auto 0 auto; 
+    position: relative;
+    z-index: 5; 
+}
+
+/* Base Card Style with hidden opacity for JS reveal */
+.skill-card {
+    background-color: #090909;
+    border: 1px solid #181818;
+    border-radius: 16px;
+    padding: 32px;
+    display: flex;
+    align-items: flex-start;
+    gap: 22px;
+    opacity: 0; /* Will be triggered by JS */
+    transform: translateY(40px); /* Will be triggered by JS */
+    position: relative;
+    transition: transform 0.6s cubic-bezier(0.2, 1, 0.3, 1), 
+                opacity 0.6s ease, 
+                border-color 0.4s ease, 
+                background-color 0.4s ease, 
+                box-shadow 0.4s ease;
+}
+
+.full-width-skill {
+    grid-column: span 2;
+    background: linear-gradient(135deg, #090909 0%, #140b0b 100%);
+    border-color: #261212;
+}
+
+/* Icon Containers with Floating Animations */
+.skill-icon-box {
+    background-color: #0e1b1d;
+    width: 56px;
+    height: 56px;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #00d1ff; 
+    flex-shrink: 0; 
+    border: 1px solid rgba(0, 209, 255, 0.15);
+    transition: all 0.4s cubic-bezier(0.2, 1, 0.3, 1);
+    animation: skillFloat 4s ease-in-out infinite alternate;
+}
+
+.skill-icon-box.emergency {
+    background-color: #221010;
+    color: #ff4a4a;
+    border-color: rgba(255, 74, 74, 0.15);
+    animation: emergencyPulse 2.5s ease-in-out infinite alternate;
+}
+
+/* Offset animation delay for a more natural chaotic movement across cards */
+.skills_parent .skill-card:nth-child(even) .skill-icon-box {
+    animation-delay: 1.5s;
+}
+.skills_parent .skill-card:nth-child(3n) .skill-icon-box {
+    animation-delay: 0.7s;
+}
+
+.skill-icon-box svg {
+    width: 24px;
+    height: 24px;
+    transition: transform 0.4s ease;
+}
+
+.skill-text {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.skill-text h3 {
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #ffffff;
+    font-family: 'Inter', sans-serif;
+    letter-spacing: 0.3px;
+    transition: color 0.3s ease;
+}
+
+.skill-text p {
+    margin: 0;
+    color: #8c8c8c;
+    font-size: 0.96rem;
+    line-height: 1.65;
+    font-family: 'Segoe UI', Roboto, sans-serif;
+}
+
+/* --- Interactive Hover states --- */
+.skill-card:hover {
+    border-color: rgba(0, 209, 255, 0.4);
+    transform: translateY(-6px) scale(1.01) !important;
+    box-shadow: 0 15px 35px rgba(0, 209, 255, 0.07);
+    background-color: #0d1719;
+}
+
+.skill-card:hover .skill-text h3 {
+    color: #00d1ff;
+}
+
+.skill-card:hover .skill-icon-box {
+    background-color: #00d1ff;
+    color: #000000;
+    transform: scale(1.1) rotate(6deg);
+    box-shadow: 0 0 20px rgba(0, 209, 255, 0.45);
+    animation-play-state: paused; /* Stops floating when interacting */
+}
+
+/* Emergency Card Specific Hover */
+.full-width-skill:hover {
+    border-color: rgba(255, 74, 74, 0.4);
+    background-color: #160c0c;
+    box-shadow: 0 15px 35px rgba(255, 74, 74, 0.07);
+}
+
+.full-width-skill:hover .skill-text h3 {
+    color: #ff4a4a;
+}
+
+.full-width-skill:hover .skill-icon-box.emergency {
+    background-color: #ff4a4a;
+    color: #000000;
+    transform: scale(1.1) rotate(-6deg);
+    box-shadow: 0 0 20px rgba(255, 74, 74, 0.45);
+    animation-play-state: paused;
+}
+
+/* --- Keyframe Animations --- */
+@keyframes skillFloat {
+    0% { transform: translateY(0px); }
+    100% { transform: translateY(-6px); }
+}
+
+@keyframes emergencyPulse {
+    0% { transform: scale(1); box-shadow: 0 0 0px rgba(255, 74, 74, 0); }
+    100% { transform: scale(1.04); border-color: rgba(255, 74, 74, 0.4); box-shadow: 0 0 8px rgba(255, 74, 74, 0.15); }
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN FOR SKILLS
+   ========================================================================== */
+@media (max-width: 992px) {
+    .skills_parent {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    .full-width-skill {
+        grid-column: span 1;
+    }
+}
+
+@media (max-width: 768px) {
+    .tracking-title-skills {
+        font-size: 2.5rem;
+        letter-spacing: 10px;
+        padding-left: 10px;
+    }
+    .skills_parent {
+        margin-top: 80px;
+        padding: 10px;
+        gap: 16px;
+    }
+    .skill-card {
+        padding: 24px;
+        gap: 16px;
+    }
+    .skill-icon-box {
+        width: 48px;
+        height: 48px;
+    }
+    .skill-icon-box svg {
+        width: 20px;
+        height: 20px;
+    }
+    .skill-text h3 {
+        font-size: 1.15rem;
+    }
+    .skill-text p {
+        font-size: 0.92rem;
     }
 }

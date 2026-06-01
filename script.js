@@ -154,3 +154,58 @@ function changeSelectedProject(targetProject) {
     document.querySelector('.projects_parent .selected_prj')?.classList.remove('selected_prj');
     targetProject.classList.add('selected_prj');
 }
+
+// ==========================================================================
+// 3. TIMELINE ITEMS SINGLE-ACTIVE TOGGLE (ACCORDION BEHAVIOR)
+// ==========================================================================
+const timelineItems = document.querySelectorAll('.horizontal-timeline .ht-item');
+
+timelineItems.forEach(item => {
+    item.addEventListener('click', (e) => {
+        // 1. Ελέγχουμε αν το στοιχείο που πατήθηκε είναι ήδη ενεργό
+        const isActive = item.classList.contains('active');
+
+        // 2. Αφαιρούμε την κλάση 'active' από ΟΛΑ τα στοιχεία του timeline
+        timelineItems.forEach(i => i.classList.remove('active'));
+
+        // 3. Αν δεν ήταν ήδη ενεργό, το κάνουμε τώρα ενεργό
+        // (Αν ήταν ενεργό, απλά μένει κλειστό αφού αφαιρέθηκε η κλάση παραπάνω)
+        if (!isActive) {
+            item.classList.add('active');
+        }
+    });
+});
+
+
+// ==========================================================================
+// 4. STAGGERED SKILLS REVEAL ANIMATION (INTERSECTION OBSERVER)
+// ==========================================================================
+document.addEventListener("DOMContentLoaded", () => {
+    const skillCards = document.querySelectorAll('.skill-card');
+    
+    if (skillCards.length === 0) return;
+
+    const skillObserverOptions = {
+        root: null,
+        threshold: 0.05,
+        rootMargin: "0px 0px -40px 0px"
+    };
+
+    const skillObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                // Επιλογή όλων των ορατών καρτών για να εφαρμοστεί το staggered delay
+                skillCards.forEach((card, index) => {
+                    setTimeout(() => {
+                        card.style.opacity = "1";
+                        card.style.transform = "translateY(0)";
+                    }, index * 80); // 80ms καθυστέρηση ανά κάρτα για waterfall εφέ
+                });
+                // Αφού ενεργοποιηθεί η εμφάνιση, σταματάμε την παρακολούθηση
+                observer.disconnect();
+            }
+        });
+    }, skillObserverOptions);
+
+    skillObserver.observe(document.querySelector('.skills_parent'));
+});
