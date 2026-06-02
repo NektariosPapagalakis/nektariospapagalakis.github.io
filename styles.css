@@ -13,16 +13,119 @@ body {
     background-size: 100% auto;
 }
 
-nav {
+/* ==========================================================================
+   NAVBAR STYLES (STICKY, TRANSLUCENT & ANIMATED)
+   ========================================================================== */
+html {
+    scroll-behavior: smooth; /* Ομαλό scroll όταν πατάς τα links */
+}
+
+nav.navbar {
     margin: 0;
-    padding: 0;
-    background: rgba(255, 255, 255, 0.1);
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    padding: 20px 0;
+    position: fixed; /* Καρφιτσωμένο στην κορυφή */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999; /* Πάνω από όλα τα στοιχεία */
+    
+    /* Ημιδιαπερατότητα & Glassmorphism */
+    background: rgba(10, 10, 10, 0.75); 
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    
+    /* Αρχική κατάσταση: Κρυμμένο πάνω από την οθόνη */
+    transform: translateY(-100%);
+    opacity: 0;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease, padding 0.3s ease;
+}
+
+/* Κλάση που θα μπαίνει μέσω JS στο scroll */
+nav.navbar.visible {
+    transform: translateY(0);
+    opacity: 1;
+    padding: 15px 0; /* Μικραίνει ελαφρώς το navbar κατά το scroll για κομψότητα */
+}
+
+.nav-container {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 0 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-logo {
+    color: #ffffff;
+    text-decoration: none;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    letter-spacing: 4px;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+}
+
+.nav-logo:hover {
+    color: #00d1ff;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 35px;
+}
+
+.nav-link {
+    color: rgba(255, 255, 255, 0.65);
+    text-decoration: none;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
     position: relative;
-    z-index: 3;
+    transition: color 0.3s ease;
+}
+
+/* ⚡ Hover Effect: Neon Cyan γραμμή που μεγαλώνει από το κέντρο */
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: -6px;
+    left: 0;
+    background-color: #00d1ff; /* Κυανό neon */
+    transform-origin: bottom center;
+    transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+    box-shadow: 0 0 8px #00d1ff;
+}
+
+.nav-link:hover {
+    color: #00d1ff;
+}
+
+.nav-link:hover::after {
+    transform: scaleX(1);
+}
+
+/* Responsive Navbar για κινητά */
+@media (max-width: 768px) {
+    .nav-links {
+        gap: 15px;
+    }
+    .nav-link {
+        font-size: 0.8rem;
+        letter-spacing: 0px;
+    }
+    .nav-logo {
+        display: none; /* Κρύβει το λογότυπο στα μικρά κινητά για να χωράνε τα links */
+    }
+    .nav-container {
+        justify-content: center;
+    }
 }
 
 /* ==========================================================================
@@ -718,7 +821,7 @@ nav {
     padding: 120px 20px;
     position: relative;
     overflow: hidden;
-    border-top: 1px solid #111;
+    /*border-top: 1px solid #111;*/
 }
 
 .skills-bg-header {

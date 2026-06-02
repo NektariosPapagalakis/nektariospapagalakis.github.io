@@ -209,3 +209,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
     skillObserver.observe(document.querySelector('.skills_parent'));
 });
+
+// ==========================================================================\r
+// 5. SHOW/HIDE NAVBAR ON SCROLL\r
+// ==========================================================================\r
+document.addEventListener("DOMContentLoaded", () => {
+    const navbar = document.querySelector('nav.navbar');
+    
+    if (!navbar) return;
+
+    window.addEventListener('scroll', () => {
+        // Αν το scroll ξεπεράσει τα 60px, εμφάνισε το navbar, αλλιώς κρύψτο
+        if (window.scrollY > 60) {
+            navbar.classList.add('visible');
+        } else {
+            navbar.classList.remove('visible');
+        }
+    });
+});
