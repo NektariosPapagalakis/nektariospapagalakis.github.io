@@ -176,7 +176,7 @@ nav.navbar.visible {
 .sub_section_1 .hello_div {
     margin: 20px;
     width: 100%;
-    letter-spacing: 0.4em;
+    letter-spacing: 1.5em;
     text-shadow: -5px 5px 5px black;
     font-weight: 300;
     text-align: center;
@@ -1039,3 +1039,86 @@ nav.navbar.visible {
     }
 }
 
+/* ==========================================================================
+   8. RESPONSIVE FOR SQUARE/STUBBY 15" LAPTOPS (Aspect Ratio ~4:3 or 5:4)
+   ========================================================================== */
+@media screen and (min-width: 1024px)  {
+
+    /* --- Hero Section Adjustment --- */
+    .section1 {
+        flex-direction: row;
+        align-items: center;
+        padding-bottom: 80px;
+    }
+
+    /* Μειώνουμε το ύψος της εικόνας γιατί το 80vh σε 4:3 οθόνη "πνίγει" το layout */
+    .profile_img {
+        height: 55vh;
+        max-height: 450px;
+        margin: 0 10px;
+    }
+
+    .section1 .sub_section_1 {
+        gap: 20px;
+    }
+
+    /* Μάζεμα των font sizes για να μην γίνονται overflow */
+    .sub_section_1 .hello_div {
+        font-size: 80px;
+        letter-spacing: 0.70em;
+    }
+
+   
+
+   
+
+    .link-container .link {
+        padding: 12px 15px;
+    }
+
+    .value {
+        font-size: 14px;
+    }
+
+    /* ==========================================
+       ΑΛΛΑΓΕΣ ΓΙΑ ΝΑ ΜΙΚΡΥΝΟΥΝ ΤΑ ΚΟΥΤΑΚΙΑ ΤΟΥ TIMELINE
+       ========================================== */
+
+    /* 1. Μικραίνουμε το αρχικό μέγεθος των κουτιών του Timeline */
+     .horizontal-timeline {
+        width: 100%;
+        height: 750px;
+    }
+
+    .horizontal-timeline .ht-content {
+        max-width: 210px;    /* Από 260px το κατεβάζουμε στα 210px */
+        min-height: 150px;   /* Από 180px το κατεβάζουμε στα 150px */
+        padding: 16px;       /* Μικρότερο εσωτερικό περιθώριο από 25px */
+    }
+
+    /* 2. Περιορίζουμε το μέγεθος του κουτιού όταν γίνεται Hover / Active */
+    .horizontal-timeline .ht-item:hover .ht-content,
+    .horizontal-timeline .ht-item.active .ht-content {
+        transform: scale(1.08); /* Μικρότερο zoom από 1.15 για να μην "πνίγει" την οθόνη */
+        min-height: 220px;      /* Από 280px το μαζεύουμε στα 220px */
+        padding-top: 25px;      /* Λιγότερο padding κατά το hover */
+        padding-bottom: 25px;
+    }
+
+    /* 3. Μικραίνουμε ελαφρώς τις γραμματοσειρές του Timeline για να χωράνε σωστά */
+    .horizontal-timeline .ht-content h3 {
+        font-size: 1.05rem;      /* Από 1.2rem */
+    }
+
+    .horizontal-timeline .ht-subtitle {
+        font-size: 0.8rem;      /* Από 0.9rem */
+        margin-bottom: 8px;
+    }
+
+    .horizontal-timeline .ht-content p {
+        font-size: 0.78rem;     /* Από 0.85rem */
+        line-height: 1.4;
+    }
+
+
+}
